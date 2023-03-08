@@ -1,0 +1,8 @@
+1. Ask
+2. Bid
+
+1. Mean
+2. Means
+3. Median
+4. Medians
+
