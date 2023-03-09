@@ -4,16 +4,6 @@ from tda import auth
 import json
 import pprint
 
-pp = pprint.PrettyPrinter(indent=1)
-
-# array = np.array(4)
-# print(array)
-#
-# for i in range(5):
-#     print(np.append(array, [[i, 'a']]))
-#
-# print(array)
-
 try:
     key = auth.client_from_token_file(config.token_path, config.api_key)
 except FileNotFoundError:
@@ -33,4 +23,5 @@ response = requests.get(endpoint,
                         headers={'Bearer': f'{key}'})
 data = json.loads(json.dumps(response.json()))
 
+pp = pprint.PrettyPrinter(indent=1)
 pp.pprint(data)
