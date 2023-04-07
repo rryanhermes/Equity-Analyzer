@@ -1,21 +1,30 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Generate x and y data
-x = [1, 2, 3, 4, 5]
-y = [1, 4, 9, 16, 25]
+# Generate some data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
 
-# Define line weight values as a list
-weights = [1, 2, 3, 4, 5]
+# Create a figure and axis object
+fig, ax1 = plt.subplots()
 
-# Create a plot with a gradient line
-fig, ax = plt.subplots()
-for i in range(len(x) - 1):
-    alpha = weights[i] / max(weights)
-    ax.plot(x[i:i+2], y[i:i+2], color='k', linewidth=2, alpha=alpha)
+# Plot the data
+ax1.plot(x, y, 'b-')
 
-# Set the x and y limits of the plot
-ax.set_xlim(min(x), max(x))
-ax.set_ylim(min(y), max(y))
+# Set labels and colors for the first axis
+ax1.set_xlabel('X-axis')
+ax1.set_ylabel('Y-axis 1', color='b')
+ax1.tick_params('y', colors='b')
 
-# Show the plot
+# Create a twin axis object
+ax2 = ax1.twinx()
+
+# Set labels and colors for the second axis
+ax2.set_ylabel('Y-axis 2', color='r')
+ax2.tick_params('y', colors='r')
+
+# Hide the ticks and spines for the second axis
+ax2.spines['right'].set_visible(False)
+ax2.tick_params(axis='y', which='both', length=0)
+
 plt.show()
