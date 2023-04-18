@@ -23,7 +23,7 @@ jobs:
           EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: |
-          python options.py
+          python /Users/ryanhermes/Documents/GitHub/td-bot-v.1/options7.py
         timeout-minutes: 5
       - name: Send email notification on start and stop
         uses: dawidd6/action-send-mail@v3.0.0
