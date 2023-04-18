@@ -3,6 +3,7 @@ name: Run td-bot-v1
 on:
   schedule:
     - cron: "25 8 * * 1-5"
+    - cron: "5 15 * * 1-5"
 
 jobs:
   run-bot:
@@ -11,18 +12,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run script
-        uses: docker://python:3
+        run: |
+          python options7.py &
+      - name: Notify start
+        uses: dawidd6/action-send-mail@v2.1.0
         with:
-          entrypoint: python
-          args: options7.py
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "TD Bot started"
+          to: rryanhermes@gmail.com
+          body: "TD Bot has started."
+
   stop-bot:
     runs-on: ubuntu-latest
-    needs: run-bot
-    if: always()
     steps:
-      - name: Stop script
-        run: pkill -f options7.py
-        shell: bash
-    - name: Send notification
-        if: always()
-        run: echo "td-bot-v1 has been stopped." | mail -s "td-bot-v1 stopped" rryanhermes@gmail.com
+      - name: Stop bot
+        run: |
+          sudo pkill -f "python options7.py"
+      - name: Notify stop
+        uses: dawidd6/action-send-mail@v2.1.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "TD Bot stopped"
+          to: rryanhermes@gmail.com
+          body: "TD Bot has stopped."
