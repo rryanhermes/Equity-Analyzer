@@ -34,6 +34,6 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: 'td-bot-v1 has started/stopped running'
           body: 'The td-bot-v1 script has started/stopped running on GitHub Actions.'
-          from: 'your-email-address@gmail.com'
-          to: 'your-email-address@gmail.com'
+          from: 'rryanhermes@gmail.com'
+          to: 'rryanhermes@gmail.com'
         if: always()
