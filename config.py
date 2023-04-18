@@ -1,4 +1,4 @@
-# from tda import auth
+
 
 key = '<tda.client.synchronous.Client object at 0x7fd62bc5c760>'
 
