@@ -22,5 +22,5 @@ jobs:
           pip install yfinance
       - name: Run options7.py
         run: |
-          python ./GitHub/td-bot-v.1/options7.py
+          python ./Documents/GitHub/td-bot-v.1/options7.py
         timeout-minutes: 5
