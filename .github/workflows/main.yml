@@ -1,9 +1,11 @@
+name: Run options7.py
+
 on:
   schedule:
     - cron: "*/10 * * * *"
 
 jobs:
-  run-bot:
+  run-options7:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,7 +20,6 @@ jobs:
           pip install numpy
           pip install matplotlib
           pip install yfinance
-      - name: Run script
-        run: |
-          python options7.py
+      - name: Run options7.py
+        run: python /Users/ryanhermes/Documents/GitHub/td-bot-v.1/options7.py
         timeout-minutes: 5
