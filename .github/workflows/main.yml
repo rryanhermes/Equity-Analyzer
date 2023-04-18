@@ -1,0 +1,17 @@
+name: Run td-bot-v1
+
+on:
+  schedule:
+    - cron: "25 8 * * 1-5"
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run script
+        uses: docker://python:3
+        with:
+          entrypoint: python
+          args: options7.py
