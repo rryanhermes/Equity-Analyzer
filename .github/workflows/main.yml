@@ -19,21 +19,6 @@ jobs:
           pip install matplotlib
           pip install yfinance
       - name: Run script
-        env:
-          EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: |
-          python /Users/ryanhermes/Documents/GitHub/td-bot-v.1/options7.py
+          python options7.py
         timeout-minutes: 5
-      - name: Send email notification on start and stop
-        uses: dawidd6/action-send-mail@v3.0.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: 'td-bot-v1 has started/stopped running'
-          body: 'The td-bot-v1 script has started/stopped running on GitHub Actions.'
-          from: 'rryanhermes@gmail.com'
-          to: 'rryanhermes@gmail.com'
-        if: always()
