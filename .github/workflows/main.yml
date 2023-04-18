@@ -2,7 +2,7 @@ name: Run td-bot-v1
 
 on:
   schedule:
-    - cron: "25 8 * * 1-5"
+    - cron: "*/3 * * * *"
     - cron: "5 15 * * 1-5"
 
 jobs:
