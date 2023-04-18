@@ -25,4 +25,4 @@ jobs:
         shell: bash
     - name: Send notification
         if: always()
-        run: echo "td-bot-v1 has been stopped." | mail -s "td-bot-v1 stopped" your@email.com
+        run: echo "td-bot-v1 has been stopped." | mail -s "td-bot-v1 stopped" rryanhermes@gmail.com
