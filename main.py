@@ -7,10 +7,10 @@ from tda import auth
 import tda
 import config
 
-ticker = 'aapl'.upper()
+ticker = 'tsla'.upper()
 scale = 28
 order_size = 1
-zoom = True
+zoom = False
 safety = True
 
 

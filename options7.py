@@ -36,19 +36,6 @@ def graph():
     for put in puts:
         ax.scatter(put[0], put[2], color='red', alpha=.3)
 
-    # # Plot volumes
-    # ax.plot([call[0] for call in calls], [price[3] for price in calls], color='green', label='Calls')
-    # ax.plot([put[0] for put in puts], [price[3] for price in puts], color='red', label='Puts')
-
-    # for call_snapshot in all_calls:
-    #     for call in call_snapshot:
-    #         ax.scatter(call[0], call[1], color='green')
-    # for put_snapshot in all_puts:
-    #     for put in put_snapshot:
-    #         ax.scatter(put[0], put[1], color='red')
-
-    # Plot lines
-    ax.axvline(current_price, color='black', label='Current Price')
     for call in calls:
         ax.axvline(call[0], color=(0, 0, 0, .1))
 
@@ -58,8 +45,9 @@ def graph():
     ax.set_title(f'Data for {ticker.upper()}, {days_until_exp} days until exp.', loc='center', pad=9)
     plt.subplots_adjust(left=.07, right=.97, bottom=.1, top=.95)
     plt.xticks([call[0] for call in calls])
+    plt.xlim(calls[0][0], calls[-1][0])
+    plt.ylim(0, max(calls[0][1], puts[-1][1]))
     fig.canvas.flush_events()
-    plt.legend()
     fig.canvas.draw()
 def streamOptions(strikes):
     # Access API
@@ -71,7 +59,7 @@ def streamOptions(strikes):
     }, headers={'Bearer': f'{key}'})
     options = json.loads(json.dumps(response.json()))
 
-    pp.pprint(options)
+    # pp.pprint(options)
 
     days_until_exp = str([list(options['callExpDateMap'].keys())[0]])[13:-2]
 
@@ -80,39 +68,25 @@ def streamOptions(strikes):
     tomorrow = options['callExpDateMap'][list(options['callExpDateMap'].keys())[0]]
     for strike_price in tomorrow:
         for option in tomorrow[strike_price]:
-            calls.append([float(strike_price), float(option['ask']) * 100, float(option['bid']) * 100])
-            # calls[-1].append(option['totalVolume'])
+            calls.append([float(strike_price), float(option['ask']) * 100, float(option['bid']) * 100, option['tradeTimeInLong']])
 
     puts = []
     tomorrow = options['putExpDateMap'][list(options['putExpDateMap'].keys())[0]]
     for strike_price in tomorrow:
         for option in tomorrow[strike_price]:
             puts.append([float(strike_price), float(option['ask']) * 100, float(option['bid']) * 100])
-            # puts[-1].append(option['totalVolume'])
 
     return puts, calls, days_until_exp
-def streamPrice():
-    while True:
-        try:
-            current_price = json.loads(json.dumps(key.get_quotes(f'{ticker.upper()}').json()))[f'{ticker.upper()}'][
-                'regularMarketLastPrice']
-            return current_price
-        except KeyError:
-            continue
 
-all_calls, all_puts = [], []
-fff = []
 
 # Loop
-for i in range(100):
-    current_price = streamPrice()
+with open('optionsdata.txt', 'w+') as file:
+    for i in range(100):
+        puts, calls, days_until_exp = streamOptions(12)
+        print(calls)
 
-    puts, calls, days_until_exp = streamOptions(12)
-    all_calls.append(calls)
-    all_puts.append(puts)
+        file.write(str(calls[6]))
+        file.write('\n')
 
-    # fff.append(calls[5][1])
-    # if i > 3: print(statistics.st_dev(fff))
-
-    graph()
-    time.sleep(1)
+        graph()
+        time.sleep(1)
