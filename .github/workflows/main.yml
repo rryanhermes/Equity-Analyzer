@@ -1,26 +1,26 @@
-name: Run options7.py
+# name: Run options7.py
 
-on:
-  schedule:
-    - cron: "*/10 * * * *"
+# on:
+#   schedule:
+#     - cron: "*/10 * * * *"
 
-jobs:
-  run-options:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - name: Install dependencies
-        run: |
-          pip install pandas
-          pip install numpy
-          pip install matplotlib
-          pip install yfinance
-      - name: Run options7.py
-        run: |
-          python ./options7.py
-        timeout-minutes: 5
+# jobs:
+#   run-options:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#       - name: Set up Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: 3.x
+#       - name: Install dependencies
+#         run: |
+#           pip install pandas
+#           pip install numpy
+#           pip install matplotlib
+#           pip install yfinance
+#       - name: Run options7.py
+#         run: |
+#           python ./options7.py
+#         timeout-minutes: 5
