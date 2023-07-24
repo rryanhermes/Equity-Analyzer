@@ -5,12 +5,7 @@ import matplotlib.pyplot as plt
 import pprint
 import requests
 import time
-
 import os
-
-cwd = os.getcwd()  # Get the current working directory (cwd)
-files = os.listdir(cwd)  # Get all the files in that directory
-print("Files in %r: %s" % (cwd, files))
 
 ticker = 'aapl'
 
@@ -87,7 +82,9 @@ def streamOptions(strikes):
 
 # Loop
 with open('optionsdata.txt', 'w+') as file:
-    for i in range(100):
+    file.write(f'{datetime.now()}')
+    file.write('\n')
+    for i in range(10000):
         puts, calls, days_until_exp = streamOptions(12)
         print(calls)
 
@@ -96,3 +93,4 @@ with open('optionsdata.txt', 'w+') as file:
 
         graph()
         time.sleep(1)
+
