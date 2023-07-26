@@ -1,7 +1,7 @@
 import csv
 import time
 from datetime import datetime, timedelta
-import config
+import resources.config as config
 import pprint
 import requests
 

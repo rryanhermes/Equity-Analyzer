@@ -2,7 +2,7 @@ import asyncio
 import json
 from tda.auth import easy_client
 from tda.streaming import StreamClient
-import config
+import resources.config as config
 from other import _OLD_functions
 import matplotlib.pyplot as plt
 import time

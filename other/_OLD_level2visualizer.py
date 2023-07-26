@@ -5,7 +5,7 @@ import json
 import matplotlib.pyplot as plt
 from tda import auth
 import tda
-import config
+import resources.config as config
 import time
 
 ticker = 'aapl'.upper()
