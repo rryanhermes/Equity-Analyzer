@@ -12,3 +12,5 @@ except FileNotFoundError:
 
     with webdriver.Chrome(executable_path='/Users/ryanhermes/opt/anaconda3/envs/td-bot/resources/chromedriver') as driver:
         key = auth.client_from_login_flow(driver, api_key, redirect_uri, token_path)
+
+print(key)

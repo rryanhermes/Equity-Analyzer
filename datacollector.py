@@ -16,6 +16,8 @@ def streamData():
         except KeyError:
             continue
 
+print(streamData())
+
 def streamTime():
     return datetime.now().strftime('%m-%d %H:%M:%S:%f')
 def streamPrice(response):
