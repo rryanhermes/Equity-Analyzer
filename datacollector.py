@@ -4,7 +4,7 @@ from datetime import datetime
 from config import apikey
 
 date = '2024-01-09'
-ticker = 'SNOW'
+ticker = 'AAPL'
 apikey = apikey
 
 # Get data
@@ -17,7 +17,7 @@ data = pd.DataFrame(results)
 data['simpletime'] = data.index + 1
 data['date'] = data['t'].apply(lambda x: datetime.fromtimestamp(x / 1000))
 data['vwap'] = (data['vw'] * data['v']).cumsum() / data['v'].cumsum()
-data = data.rename(columns={'v': 'volume', 'vw': 'vw', 'o': 'open', 'c': 'close', 'h': 'high', 'l': 'low', 'n': 'num_trades'})
+data = data.rename(columns={'v': 'volume', 'o': 'open', 'c': 'close', 'h': 'high', 'l': 'low', 'n': 'num_trades'})
 
 # Save
 data.to_csv(f'data/{ticker} {date}.csv', index=False)
