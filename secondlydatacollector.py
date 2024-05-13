@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 from datetime import datetime
-from config import apikey
+from config import polygon_apikey
 
 # for i in range(1, 30):
 #     date = f'2024-01-{i}'
@@ -25,10 +25,10 @@ from config import apikey
 
 date = f'2024-01-26'
 ticker = 'AAPL'
-apikey = apikey
+polygon_apikey = polygon_apikey
 
 # Get dataconda
-url = f'https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/second/{date}/{date}?adjusted=true&sort=asc&limit=50000&apiKey={apikey}'
+url = f'https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/second/{date}/{date}?adjusted=true&sort=asc&limit=50000&apiKey={polygon_apikey}'
 response = requests.get(url).json()
 results = response.get('results', [])
 data = pd.DataFrame(results)
