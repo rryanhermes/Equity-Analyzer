@@ -1,6 +1,4 @@
 X,Filing Date,Trade Date,Ticker,Insider Name,Title,Trade Type,Price,Qty,Owned,ΔOwn,Value
-,2024-04-15 18:31:11,2024-04-11,AAPL,Williams Jeffrey E,COO,S - Sale,$172.22,"-59,162","489,944",-11%,"-$10,188,880"
-,2024-04-15 18:30:24,2024-04-11,AAPL,Maestri Luca,"SVP, CFO",S - Sale,$174.12,"-53,194","107,788",-33%,"-$9,261,933"
 D,2024-04-03 18:33:14,2024-04-02,AAPL,O'Brien Deirdre,SVP,S - Sale+OE,$168.91,"-54,732","136,572",-29%,"-$9,244,782"
 DM,2024-04-03 18:31:43,2024-04-01,AAPL,Cook Timothy D,CEO,S - Sale+OE,$169.33,"-196,410","3,280,180",-6%,"-$33,258,614"
 D,2024-04-03 18:30:48,2024-04-02,AAPL,Adams Katherine L.,"SVP, GC, Secretary",S - Sale+OE,$168.90,"-54,732","293,393",-16%,"-$9,244,235"
@@ -30,3 +28,5 @@ D,2022-10-04 22:02:25,2022-10-03,AAPL,Adams Katherine L.,"SVP, GC, Secretary",S 
 A,2022-08-22 18:43:18,2022-08-17,AAPL,Maestri Luca,"SVP, CFO",S - Sale,$174.96,"-96,735","110,673",-47%,"-$16,924,259"
 ,2022-08-19 18:30:27,2022-08-17,AAPL,Maestri Luca,"SVP, CFO",S - Sale,$174.96,"-96,735","110,673",-47%,"-$16,924,259"
 ,2022-08-05 18:30:49,2022-08-03,AAPL,Adams Katherine L.,"SVP, GC, Secretary",S - Sale,$164.77,"-25,000","427,334",-6%,"-$4,119,155"
+,2022-05-06 18:30:57,2022-05-04,AAPL,Adams Katherine L.,"SVP, GC, Secretary",S - Sale,$161.72,"-25,000","452,334",-5%,"-$4,042,888"
+D,2022-04-19 18:31:54,2022-04-18,AAPL,O'Brien Deirdre,SVP,S - Sale+OE,$164.91,"-8,000","136,290",-6%,"-$1,319,305"
