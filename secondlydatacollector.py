@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 from datetime import datetime
-from config import polygon_apikey
+from assets.config import polygon_apikey
 
 # for i in range(1, 30):
 #     date = f'2024-01-{i}'
